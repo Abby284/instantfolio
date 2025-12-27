@@ -3,117 +3,127 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>InstantFolio — Create Student Portfolios Instantly</title>
+<title>InstantFolio — Simple Portfolio Builder for Students</title>
 
-<!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body class="bg-slate-900 text-white">
 
-<!-- HERO SECTION -->
-<section class="min-h-screen flex items-center">
+<!-- NAVBAR -->
+<header class="border-b border-slate-800">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-semibold">InstantFolio</h1>
+
+    <div class="space-x-6 text-sm text-slate-300">
+      <a href="#features" class="hover:text-white">Features</a>
+      <a href="#how" class="hover:text-white">How it works</a>
+      <a href="#create"
+         class="bg-sky-500 hover:bg-sky-400 px-4 py-2 rounded-lg text-black font-medium">
+        Get Started
+      </a>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- HERO -->
+<section class="min-h-[75vh] flex items-center">
   <div class="max-w-6xl mx-auto px-6 py-12">
 
-    <span class="px-4 py-1 rounded-full bg-slate-800 text-sky-400 text-sm">
-      🎓 Student Friendly Portfolio Builder
-    </span>
+    <p class="text-sky-400 text-sm font-medium tracking-wide">
+      Built for students, freshers and early professionals
+    </p>
 
-    <h1 class="mt-6 text-4xl md:text-6xl font-bold leading-tight">
-      Build Your Portfolio <br>
-      <span class="text-sky-400">In Seconds.</span>
+    <h1 class="mt-4 text-4xl md:text-6xl font-bold leading-tight max-w-3xl">
+      Create a clean, professional portfolio in minutes.
     </h1>
 
     <p class="mt-4 text-slate-300 text-lg max-w-2xl">
-      No sign-up. No coding. Completely free.
-      Create a beautiful online portfolio — perfect for students, freshers, internships and placements.
+      InstantFolio helps students quickly build a simple portfolio website without any signup,
+      coding, or complicated tools. Just enter your details and get a shareable link.
     </p>
 
     <div class="mt-8 flex gap-4">
       <a href="#create"
-         class="px-7 py-3 bg-sky-500 hover:bg-sky-400 transition rounded-xl font-semibold">
-         Get Started
+         class="px-7 py-3 bg-sky-500 hover:bg-sky-400 transition rounded-xl font-semibold text-black">
+         Create Portfolio
       </a>
 
       <a href="#example"
-         class="px-7 py-3 bg-slate-800 hover:bg-slate-700 transition rounded-xl">
+         class="px-7 py-3 border border-slate-700 hover:border-slate-500 transition rounded-xl text-slate-300">
          View Example
       </a>
     </div>
 
   </div>
 </section>
-
-
-
-<!-- WHY STUDENTS LOVE -->
-<section class="py-16">
+<!-- FEATURES -->
+<section id="features" class="py-16 border-t border-slate-800">
   <div class="max-w-6xl mx-auto px-6">
 
-    <h2 class="text-3xl font-bold">Why Students Love InstantFolio</h2>
+    <h2 class="text-3xl font-bold">Why use InstantFolio?</h2>
 
-    <div class="grid md:grid-cols-3 gap-6 mt-8">
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
 
-      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-700 transition">
-        <h3 class="text-xl font-semibold text-sky-400">⚡ Instant</h3>
+      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-750 transition">
+        <h3 class="text-xl font-semibold text-sky-400">Fast setup</h3>
         <p class="text-slate-300 mt-2">
-          Build and share your portfolio in under 60 seconds.
+          No accounts, no dashboards, no complexity. Just fill a form and your
+          portfolio is live.
         </p>
       </div>
 
-      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-700 transition">
-        <h3 class="text-xl font-semibold text-sky-400">🎓 Student Focused</h3>
+      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-750 transition">
+        <h3 class="text-xl font-semibold text-sky-400">Student focused</h3>
         <p class="text-slate-300 mt-2">
-          Designed especially for students, freshers & placements.
+          Built specifically for college students, internship applicants,
+          hackathons and fresh graduates.
         </p>
       </div>
 
-      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-700 transition">
-        <h3 class="text-xl font-semibold text-sky-400">💯 Free Forever</h3>
+      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-750 transition">
+        <h3 class="text-xl font-semibold text-sky-400">Free to use</h3>
         <p class="text-slate-300 mt-2">
-          No paywalls. No hidden charges. Just create and share.
+          No hidden charges or trials. InstantFolio is free and simple. That’s it.
         </p>
       </div>
 
     </div>
   </div>
 </section>
-
-
-
 <!-- HOW IT WORKS -->
-<section class="py-16">
-  <div class="max-w-6xl mx-auto px-6 text-center">
+<section id="how" class="py-16">
+  <div class="max-w-6xl mx-auto px-6">
 
-    <h2 class="text-3xl font-bold">How It Works</h2>
+    <h2 class="text-3xl font-bold">How it works</h2>
     <p class="text-slate-400 mt-2">
-      3 simple steps — no stress, no signup.
+      A straightforward way to build your online portfolio.
     </p>
 
     <div class="grid md:grid-cols-3 gap-8 mt-10">
 
       <div class="bg-slate-800 p-6 rounded-2xl">
-        <div class="text-3xl">📝</div>
-        <h3 class="text-xl font-semibold text-sky-400 mt-3">Fill Details</h3>
+        <h3 class="text-xl font-semibold text-sky-400">1. Enter details</h3>
         <p class="text-slate-300 mt-2">
-          Enter your name, skills, achievements and projects.
+          Add your name, skills, education, projects and links.
         </p>
       </div>
 
       <div class="bg-slate-800 p-6 rounded-2xl">
-        <div class="text-3xl">✨</div>
-        <h3 class="text-xl font-semibold text-sky-400 mt-3">Generate</h3>
+        <h3 class="text-xl font-semibold text-sky-400">2. Generate</h3>
         <p class="text-slate-300 mt-2">
-          Your beautiful portfolio gets created instantly.
+          Your portfolio is created instantly with a clean,
+          student-friendly design.
         </p>
       </div>
 
       <div class="bg-slate-800 p-6 rounded-2xl">
-        <div class="text-3xl">📤</div>
-        <h3 class="text-xl font-semibold text-sky-400 mt-3">Share</h3>
+        <h3 class="text-xl font-semibold text-sky-400">3. Share</h3>
         <p class="text-slate-300 mt-2">
-          Share your link with recruiters, colleges, friends.
+          Share the link with recruiters, friends, faculty or in resumes.
         </p>
       </div>
 
@@ -121,35 +131,25 @@
 
   </div>
 </section>
-
-
-
 <!-- CTA -->
-<section class="py-20">
+<section class="py-20 border-t border-slate-800">
   <div class="max-w-6xl mx-auto px-6 text-center">
-    
     <h2 class="text-4xl font-bold">
-      Ready To Build Your Future?
+      Ready to create your portfolio?
     </h2>
-
     <p class="text-slate-300 mt-4 text-lg">
-      It only takes a few seconds. No login required. 🎉
+      It takes less than a minute to set up.
     </p>
-
     <a href="#create"
-       class="mt-8 inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 rounded-2xl font-semibold">
-       Create My Portfolio 🚀
+       class="mt-8 inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 rounded-2xl font-semibold text-black">
+       Get Started
     </a>
-
   </div>
 </section>
-
-
-
 <!-- FOOTER -->
-<footer class="py-10 border-t border-slate-700 text-center text-slate-400">
-  <p>InstantFolio — Made for Students ❤️</p>
-  <p class="mt-2 text-sm">Create. Share. Impress.</p>
+<footer class="py-10 border-t border-slate-800 text-center text-slate-400">
+  <p>InstantFolio</p>
+  <p class="mt-1 text-sm">Built for students to showcase their journey.</p>
 </footer>
 
 
