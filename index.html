@@ -146,6 +146,106 @@
     </a>
   </div>
 </section>
+  <!-- CREATE PORTFOLIO SECTION -->
+<section id="create" class="py-20 border-t border-slate-800">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <h2 class="text-3xl font-bold">
+      Create your portfolio
+    </h2>
+
+    <p class="text-slate-400 mt-2 max-w-2xl">
+      Fill in your details below. Once submitted, your portfolio will be generated instantly
+      with a shareable link.
+    </p>
+
+
+    <!-- FORM CARD -->
+    <div class="mt-10 bg-slate-800 p-8 rounded-2xl border border-slate-700">
+
+      <form id="portfolioForm" class="space-y-6">
+
+        <!-- NAME + TITLE -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="text-sm text-slate-300">Full Name</label>
+            <input
+              id="name"
+              class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+              placeholder="Example: Riya Sharma"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="text-sm text-slate-300">Professional Title</label>
+            <input
+              id="title"
+              class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+              placeholder="Example: Computer Science Student / Web Developer"
+            />
+          </div>
+        </div>
+        <!-- BIO -->
+        <div>
+          <label class="text-sm text-slate-300">Short Introduction</label>
+          <textarea
+            id="bio"
+            rows="4"
+            class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+            placeholder="Write a short summary about yourself, background, interests or goals."
+          ></textarea>
+        </div>
+        <!-- SKILLS -->
+        <div>
+          <label class="text-sm text-slate-300">Skills</label>
+          <input
+            id="skills"
+            class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+            placeholder="Example: C++, Python, Web Development, UI Design"
+          />
+          <p class="text-slate-500 text-sm mt-1">
+            Separate skills with commas
+          </p>
+        </div>
+
+
+        <!-- LINKS -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="text-sm text-slate-300">GitHub</label>
+            <input
+              id="github"
+              class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+              placeholder="https://github.com/username"
+            />
+          </div>
+
+          <div>
+            <label class="text-sm text-slate-300">LinkedIn</label>
+            <input
+              id="linkedin"
+              class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+              placeholder="https://linkedin.com/in/username"
+            />
+          </div>
+        </div>
+        <!-- BUTTON -->
+        <div class="pt-4">
+          <button
+            class="w-full bg-sky-500 hover:bg-sky-400 text-black font-semibold py-3 rounded-xl transition"
+          >
+            Generate My Portfolio
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="py-10 border-t border-slate-800 text-center text-slate-400">
   <p>InstantFolio</p>
