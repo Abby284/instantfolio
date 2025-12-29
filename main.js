@@ -2,6 +2,7 @@ const supabaseClient = supabase.createClient(
   "https://ykrpylrwxdirlbxtqneo.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlrcnB5bHJ3eGRpcmxieHRxbmVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5OTA1MDcsImV4cCI6MjA4MjU2NjUwN30.GUT_3RF57cLxNbQNOj_gjOx5Z9nh2BbiCPqGuk9uzqo"
 );
+console.log("Main.js connected");
 
 // generate clean slug with short random
 function createSlug(name) {
