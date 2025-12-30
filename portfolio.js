@@ -12,86 +12,114 @@ async function loadPortfolio() {
     .eq("slug", slug)
     .single();
 
-  if (error || !data) {
+  if (!data || error) {
     document.getElementById("content").innerHTML =
-      `<h1 class="text-2xl font-bold">Portfolio not found</h1>`;
+      `<h1 class="text-2xl font-bold">Portfolio Not Found</h1>`;
     return;
   }
 
   document.getElementById("content").innerHTML = `
+    
     <!-- HERO -->
-    <div class="mb-14">
-      <h1 class="text-5xl font-bold">${data.name}</h1>
-      <p class="text-xl text-slate-400 mt-2">${data.title || ""}</p>
-    </div>
+    <section class="text-center mb-14">
+      <h1 class="text-5xl font-extrabold bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">
+        ${data.name}
+      </h1>
+
+      <p class="text-lg text-slate-400 mt-2">
+        ${data.title || "Student Portfolio"}
+      </p>
+
+      <div class="h-[1px] bg-slate-800 mt-6"></div>
+    </section>
+
 
     <!-- ABOUT -->
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold border-b border-slate-700 pb-2 mb-3">
-        About
-      </h2>
-      <p class="text-slate-300 leading-relaxed">
-        ${data.bio || "No bio added yet."}
+      <h2 class="text-2xl font-semibold text-sky-400">About</h2>
+
+      <p class="mt-3 text-slate-300 leading-relaxed">
+        ${data.bio || "No bio provided."}
       </p>
     </section>
+
 
     <!-- EXPERIENCE -->
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold border-b border-slate-700 pb-2 mb-3">
-        Experience
-      </h2>
-      <p class="text-slate-300 whitespace-pre-line">
-        ${data.experience || "No experience added."}
-      </p>
+      <h2 class="text-2xl font-semibold text-violet-400">Experience</h2>
+
+      ${
+        data.experience
+          ? `<div class="bg-slate-900 p-5 mt-3 rounded-2xl border border-slate-700">
+              <pre class="whitespace-pre-wrap text-slate-300 leading-relaxed">${data.experience}</pre>
+            </div>`
+          : `<p class="text-slate-500 mt-2">No experience added.</p>`
+      }
     </section>
+
 
     <!-- PROJECTS -->
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold border-b border-slate-700 pb-2 mb-3">
-        Projects
-      </h2>
-      <p class="text-slate-300 whitespace-pre-line">
-        ${data.projects || "No projects added yet."}
-      </p>
+      <h2 class="text-2xl font-semibold text-emerald-400">Projects</h2>
+
+      ${
+        data.projects
+          ? `<div class="bg-slate-900 p-5 mt-3 rounded-2xl border border-slate-700">
+              <pre class="whitespace-pre-wrap text-slate-300 leading-relaxed">${data.projects}</pre>
+            </div>`
+          : `<p class="text-slate-500 mt-2">No projects added.</p>`
+      }
     </section>
+
 
     <!-- SKILLS -->
     <section class="mb-12">
-      <h2 class="text-2xl font-semibold border-b border-slate-700 pb-2 mb-3">
-        Skills
-      </h2>
-      <div class="flex gap-2 flex-wrap">
+      <h2 class="text-2xl font-semibold text-orange-400">Skills</h2>
+
+      <div class="flex flex-wrap gap-2 mt-3">
         ${
           data.skills?.length
             ? data.skills
                 .map(
-                  (s) =>
-                    `<span class="bg-slate-800 px-4 py-2 rounded-xl border border-slate-700">${s}</span>`
+                  s =>
+                    `<span class="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-slate-200 shadow-[0_0_15px_-5px_rgba(56,189,248,0.6)]">
+                      ${s}
+                    </span>`
                 )
                 .join("")
-            : `<p class="text-slate-400">No skills added.</p>`
+            : `<p class="text-slate-500">No skills added.</p>`
         }
       </div>
     </section>
 
+
     <!-- LINKS -->
     <section>
-      <h2 class="text-2xl font-semibold border-b border-slate-700 pb-2 mb-3">
-        Links
-      </h2>
-      <div class="space-y-2">
+      <h2 class="text-2xl font-semibold text-pink-400">Links</h2>
+
+      <div class="flex gap-4 mt-4">
+
         ${
           data.github
-            ? `<a href="${data.github}" class="text-sky-400 hover:underline" target="_blank">GitHub</a>`
+            ? `<a href="${data.github}" target="_blank"
+                class="px-5 py-2 bg-sky-500 hover:bg-sky-400 text-black font-semibold rounded-xl">
+                GitHub
+               </a>`
             : ""
         }
+
         ${
           data.linkedin
-            ? `<a href="${data.linkedin}" class="text-sky-400 hover:underline block" target="_blank">LinkedIn</a>`
+            ? `<a href="${data.linkedin}" target="_blank"
+                class="px-5 py-2 bg-violet-500 hover:bg-violet-400 text-black font-semibold rounded-xl">
+                LinkedIn
+               </a>`
             : ""
         }
+
       </div>
     </section>
+
   `;
 }
 
