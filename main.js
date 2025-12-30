@@ -36,17 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
       .map(s => s.trim())
       .filter(Boolean);
 
-    const { error } = await supabaseClient.from("portfolios").insert([
-      {
-        name,
-        slug,
-        title: document.getElementById("title").value,
-        bio: document.getElementById("bio").value,
-        skills,
-        github: document.getElementById("github").value,
-        linkedin: document.getElementById("linkedin").value
-      }
-    ]);
+   const { error } = await supabaseClient.from("portfolios").insert([
+  {
+    name,
+    slug,
+    title: document.getElementById("title").value,
+    bio: document.getElementById("bio").value,
+    skills,
+    github: document.getElementById("github").value,
+    linkedin: document.getElementById("linkedin").value,
+    experience: document.getElementById("experience").value,
+    projects: document.getElementById("projects").value
+  }
+]);
+
 
     if (error) {
       console.log(error);
