@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>InstantFolio — Simple Portfolio Builder for Students</title>
 
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -26,7 +27,6 @@
     </div>
   </div>
 </header>
-
 
 
 <!-- HERO -->
@@ -60,6 +60,8 @@
 
   </div>
 </section>
+
+
 <!-- FEATURES -->
 <section id="features" class="py-16 border-t border-slate-800">
   <div class="max-w-6xl mx-auto px-6">
@@ -68,7 +70,7 @@
 
     <div class="grid md:grid-cols-3 gap-6 mt-10">
 
-      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-750 transition">
+      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-700 transition">
         <h3 class="text-xl font-semibold text-sky-400">Fast setup</h3>
         <p class="text-slate-300 mt-2">
           No accounts, no dashboards, no complexity. Just fill a form and your
@@ -76,7 +78,7 @@
         </p>
       </div>
 
-      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-750 transition">
+      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-700 transition">
         <h3 class="text-xl font-semibold text-sky-400">Student focused</h3>
         <p class="text-slate-300 mt-2">
           Built specifically for college students, internship applicants,
@@ -84,7 +86,7 @@
         </p>
       </div>
 
-      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-750 transition">
+      <div class="bg-slate-800 p-6 rounded-2xl hover:bg-slate-700 transition">
         <h3 class="text-xl font-semibold text-sky-400">Free to use</h3>
         <p class="text-slate-300 mt-2">
           No hidden charges or trials. InstantFolio is free and simple. That’s it.
@@ -94,6 +96,8 @@
     </div>
   </div>
 </section>
+
+
 <!-- HOW IT WORKS -->
 <section id="how" class="py-16">
   <div class="max-w-6xl mx-auto px-6">
@@ -131,22 +135,30 @@
 
   </div>
 </section>
+
+
 <!-- CTA -->
 <section class="py-20 border-t border-slate-800">
   <div class="max-w-6xl mx-auto px-6 text-center">
+
     <h2 class="text-4xl font-bold">
       Ready to create your portfolio?
     </h2>
+
     <p class="text-slate-300 mt-4 text-lg">
       It takes less than a minute to set up.
     </p>
+
     <a href="#create"
        class="mt-8 inline-block px-8 py-4 bg-sky-500 hover:bg-sky-400 rounded-2xl font-semibold text-black">
        Get Started
     </a>
+
   </div>
 </section>
-  <!-- CREATE PORTFOLIO SECTION -->
+
+
+<!-- CREATE PORTFOLIO SECTION -->
 <section id="create" class="py-20 border-t border-slate-800">
   <div class="max-w-5xl mx-auto px-6">
 
@@ -160,116 +172,108 @@
     </p>
 
 
-
-    <!-- FORM CARD -->
+    <!-- FORM -->
     <div class="mt-10 bg-slate-800 p-8 rounded-2xl border border-slate-700">
-<form id="portfolioForm" class="space-y-6">
+
+      <form id="portfolioForm" class="space-y-6">
+
         <!-- NAME + TITLE -->
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <label class="text-sm text-slate-300">Full Name</label>
-            <input
-              id="name"
+            <input id="name"
               class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
-              placeholder="Example: Riya Sharma"
-              required
-            />
+              placeholder="Example: Riya Sharma" required />
           </div>
 
           <div>
             <label class="text-sm text-slate-300">Professional Title</label>
-            <input
-              id="title"
+            <input id="title"
               class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
-              placeholder="Example: Computer Science Student / Web Developer"
-            />
+              placeholder="Example: Computer Science Student / Web Developer" />
           </div>
         </div>
+
         <!-- BIO -->
         <div>
           <label class="text-sm text-slate-300">Short Introduction</label>
-          <textarea
-            id="bio"
-            rows="4"
+          <textarea id="bio" rows="4"
             class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
-            placeholder="Write a short summary about yourself, background, interests or goals."
-          ></textarea>
+            placeholder="Write a short summary about yourself, background, interests or goals."></textarea>
         </div>
+
         <!-- SKILLS -->
         <div>
           <label class="text-sm text-slate-300">Skills</label>
-          <input
-            id="skills"
+          <input id="skills"
             class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
-            placeholder="Example: C++, Python, Web Development, UI Design"
-          />
-          <p class="text-slate-500 text-sm mt-1">
-            Separate skills with commas
-          </p>
+            placeholder="Example: C++, Python, Web Development, UI Design" />
+          <p class="text-slate-500 text-sm mt-1">Separate skills with commas</p>
         </div>
+
         <!-- LINKS -->
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <label class="text-sm text-slate-300">GitHub</label>
-            <input
-              id="github"
+            <input id="github"
               class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
-              placeholder="https://github.com/username"
-            />
+              placeholder="https://github.com/username" />
           </div>
+
           <div>
             <label class="text-sm text-slate-300">LinkedIn</label>
-            <input id="linkedin" class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
-              placeholder="https://linkedin.com/in/username"/>
-      </div>
-    </div>
-  <!-- EXPERIENCE -->
-<div>
-  <label class="text-sm text-slate-300">Experience</label>
-  <textarea
-    id="experience"
-    rows="4"
-    class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
-    placeholder="Example:
-Software Intern at ABC Company (2024)
-Worked on web development and APIs..."
-  ></textarea>
-  <p class="text-slate-500 text-sm mt-1">
-    You can write multiple lines. Format like a resume.
-  </p>
-</div>
+            <input id="linkedin"
+              class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+              placeholder="https://linkedin.com/in/username" />
+          </div>
+        </div>
 
-<!-- PROJECTS -->
-<div>
-  <label class="text-sm text-slate-300">Projects</label>
-  <textarea
-    id="projects"
-    rows="4"
-    class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
-    placeholder="Example:
-Portfolio Website — Built using HTML, Tailwind, JS
-Chat App — Built using Firebase..."
-  ></textarea>
-  <p class="text-slate-500 text-sm mt-1">
-    You can list multiple projects line by line.
-  </p>
-</div>
+        <!-- EXPERIENCE -->
+        <div>
+          <label class="text-sm text-slate-300">Experience</label>
+          <textarea id="experience" rows="4"
+            class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+            placeholder="Example:
+Software Intern — XYZ Company (2024)
+Worked on frontend development and APIs."></textarea>
+        </div>
 
-    <!-- BUTTON -->
+        <!-- PROJECTS -->
+        <div>
+          <label class="text-sm text-slate-300">Projects</label>
+          <textarea id="projects" rows="4"
+            class="w-full mt-2 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-sky-500"
+            placeholder="Example:
+Portfolio Website — Built using HTML, Tailwind, Supabase
+Chat Application — Built using Firebase"></textarea>
+        </div>
+
+        <!-- SUBMIT -->
         <div class="pt-4">
-        <button class="w-full bg-sky-500 hover:bg-sky-400 text-black font-semibold py-3 rounded-xl transition">Generate My Portfolio </button>
-      </div>
+          <button
+            class="w-full bg-sky-500 hover:bg-sky-400 text-black font-semibold py-3 rounded-xl transition">
+            Generate My Portfolio
+          </button>
+        </div>
+
       </form>
-</div>
-</div>
+
+    </div>
+
+  </div>
 </section>
+
+
 <!-- FOOTER -->
 <footer class="py-10 border-t border-slate-800 text-center text-slate-400">
   <p>InstantFolio</p>
   <p class="mt-1 text-sm">Built for students to showcase their journey.</p>
 </footer>
+
+
+<!-- SCRIPTS -->
 <script src="https://unpkg.com/@supabase/supabase-js"></script>
 <script src="main.js"></script>
+
 </body>
 </html>
-
