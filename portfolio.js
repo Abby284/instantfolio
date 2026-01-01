@@ -1,60 +1,138 @@
-const supabaseClient = supabase.createClient( "https://ykrpylrwxdirlbxtqneo.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlrcnB5bHJ3eGRpcmxieHRxbmVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5OTA1MDcsImV4cCI6MjA4MjU2NjUwN30.GUT_3RF57cLxNbQNOj_gjOx5Z9nh2BbiCPqGuk9uzqo" );
+const supabaseClient = supabase.createClient(
+  "https://ykrpylrwxdirlbxtqneo.supabase.co",
+  "YOUR_PUBLIC_ANON_KEY"
+);
+
 const slug = new URLSearchParams(window.location.search).get("slug");
 
 async function loadPortfolio() {
-  const { data } = await supabaseClient
+  const { data, error } = await supabaseClient
     .from("portfolios")
     .select("*")
     .eq("slug", slug)
     .single();
 
-  document.getElementById("content").innerHTML = `
-  <section class="text-center mb-16">
-    <h1 class="text-6xl font-extrabold bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">
+  const c = document.getElementById("content");
+
+  if (!data || error) {
+    c.innerHTML = `<h1 class="text-3xl font-bold text-center mt-20">Portfolio Not Found</h1>`;
+    return;
+  }
+
+  c.innerHTML = `
+
+  <!-- HERO -->
+  <section class="text-center mb-14">
+    <h1 class="text-5xl font-extrabold tracking-wide bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
       ${data.name}
     </h1>
-    <p class="text-xl text-slate-400 mt-3">${data.title}</p>
+
+    <p class="mt-2 text-slate-300 text-lg">
+      ${data.title || ""}
+    </p>
+
+    <div class="h-[1px] bg-slate-800 mt-6"></div>
   </section>
 
-  ${section("About", data.bio)}
-  ${section("Education", data.education)}
-  ${section("Experience", data.experience)}
-  ${section("Projects", data.projects)}
-  ${badges("Skills", data.skills)}
-  ${section("Achievements", data.achievements)}
-  ${section("Certificates", data.certificates)}
-  ${section("Academic Highlights", data.academics)}
-  ${links(data)}
+
+
+  <!-- MAIN GRID -->
+  <div class="space-y-10">
+
+    ${box("About", data.bio)}
+
+    ${box("Education", data.education)}
+
+    ${box("Experience", formatList(data.experience))}
+
+    ${box("Projects", formatList(data.projects))}
+
+    ${skillsBox(data.skills)}
+
+    ${box("Achievements", formatList(data.achievements))}
+
+    ${box("Certificates", formatList(data.certificates))}
+
+    ${box("Academic Highlights", formatList(data.academics))}
+
+    ${links(data)}
+
+  </div>
   `;
 }
 
-function section(title, content) {
+
+
+// ------------ UI COMPONENTS -----------
+
+function box(title, content) {
   return `
-  <div class="mb-12">
-    <h2 class="text-3xl text-sky-400 font-semibold">${title}</h2>
-    <div class="bg-slate-900 p-6 mt-3 rounded-2xl border border-slate-700 whitespace-pre-wrap">
-      ${content || "Not added"}
-    </div>
+  <div class="bg-[#0c1324] border border-slate-700 rounded-2xl p-6 shadow-xl">
+    <h2 class="text-2xl font-semibold mb-2 text-sky-400">${title}</h2>
+
+    ${
+      content
+        ? `<p class="text-slate-300 leading-relaxed whitespace-pre-wrap">${content}</p>`
+        : `<p class="text-slate-600">No information provided.</p>`
+    }
   </div>`;
 }
 
-function badges(title, list) {
+function formatList(text) {
+  if (!text) return "";
+  return text
+    .split(/[,\n•-]/)
+    .filter(x => x.trim())
+    .map(x => `• ${x.trim()}`)
+    .join("\n");
+}
+
+function skillsBox(skills) {
   return `
-  <div class="mb-12">
-    <h2 class="text-3xl text-orange-400 font-semibold">${title}</h2>
-    <div class="flex flex-wrap gap-3 mt-4">
-      ${list?.map(s => `<span class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-xl">${s}</span>`).join("")}
-    </div>
+  <div class="bg-[#0c1324] border border-slate-700 rounded-2xl p-6 shadow-xl">
+    <h2 class="text-2xl font-semibold mb-2 text-orange-400">Skills</h2>
+
+    ${
+      skills?.length
+        ? `<div class="flex flex-wrap gap-3 mt-3">
+           ${skills
+             .map(
+               s =>
+                 `<span class="px-5 py-2 bg-slate-900 border border-slate-700 rounded-full shadow-[0_0_20px_-6px_rgba(56,189,248,0.7)] text-slate-200">
+                    ${s}
+                  </span>`
+             )
+             .join("")}
+           </div>`
+        : `<p class="text-slate-600">No skills listed.</p>`
+    }
   </div>`;
 }
 
 function links(d) {
   return `
-  <div class="mb-12">
-    <h2 class="text-3xl text-pink-400 font-semibold">Links</h2>
-    <div class="flex gap-4 mt-4">
-      ${d.github ? `<a href="${d.github}" class="px-6 py-3 bg-sky-500 rounded-xl text-black">GitHub</a>` : ""}
-      ${d.linkedin ? `<a href="${d.linkedin}" class="px-6 py-3 bg-violet-500 rounded-xl text-black">LinkedIn</a>` : ""}
+  <div class="bg-[#0c1324] border border-slate-700 rounded-2xl p-6 shadow-xl">
+    <h2 class="text-2xl font-semibold mb-3 text-pink-400">Links</h2>
+    <div class="flex gap-4">
+
+      ${
+        d.github
+          ? `<a href="${d.github}" target="_blank"
+              class="px-6 py-3 bg-sky-500 hover:bg-sky-400 rounded-xl text-black font-semibold">
+              GitHub
+            </a>`
+          : ""
+      }
+
+      ${
+        d.linkedin
+          ? `<a href="${d.linkedin}" target="_blank"
+              class="px-6 py-3 bg-purple-500 hover:bg-purple-400 rounded-xl text-black font-semibold">
+              LinkedIn
+            </a>`
+          : ""
+      }
+
     </div>
   </div>`;
 }
